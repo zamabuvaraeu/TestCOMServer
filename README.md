@@ -1,0 +1,2 @@
+# TestCOMServer
+Тестовый COM сервер
