@@ -1,5 +1,5 @@
 set CompilerDirectory=%ProgramFiles%\FreeBASIC
-if %PROCESSOR_ARCHITECTURE%=="x86" (
+if "%PROCESSOR_ARCHITECTURE%"=="x86" (
 	set CompilerBinDirectory=%CompilerDirectory%\bin\win32
 	set CompilerLibDirectory=%CompilerDirectory%\lib\win32
 	set CodeGenerationBackend=gas
@@ -73,7 +73,7 @@ for %%I IN (%AllCompiledFiles%) do (
 	call :gcccompile %%I
 )
 
-if %PROCESSOR_ARCHITECTURE%=="x86" (
+if "%PROCESSOR_ARCHITECTURE%"=="x86" (
 	set EntryPoint=_DllMain@12
 	set PEFileFormat=i386pe
 ) else (
@@ -97,7 +97,7 @@ set FileWithExtensionC=%FileWithoutExtension%c
 set FileWithExtensionAsm=%FileWithoutExtension%asm
 set FileWithExtensionObj=%FileWithoutExtension%obj
 
-if %PROCESSOR_ARCHITECTURE%=="x86" (
+if "%PROCESSOR_ARCHITECTURE%"=="x86" (
 	set TargetAssemblerArch=--32
 ) else (
 	set TargetAssemblerArch=--64
