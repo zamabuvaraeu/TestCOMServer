@@ -24,7 +24,7 @@ REM set EnableShowIncludes=-showincludes
 set MainFile=Modules\DLLMain.bas
 set Classes=
 set Modules=
-set Resources=
+set Resources=Resources.rc
 
 if "%1"=="lib" (
 	set DYNAMICLIBRARY_DEFINED=
@@ -59,11 +59,11 @@ if "%2"=="withoutruntime" (
 "%CompilerDirectory%\fbc.exe" %MaxErrorsCount% %UseThreadSafeRuntime% -x %OutputFileName% %IncludeLibraries% %IncludeFilesPath% %OptimizationLevel% -s %Win32Subsystem% %VectorizationLevel% -gen %CodeGenerationBackend% %MinWarningLevel% %EnableDebug% %EnableFunctionProfiling% %WriteOutOnlyAsm% %TypeKindLibrary% %EnableShowIncludes% %EnableVerbose% %DYNAMICLIBRARY_DEFINED% %WITHOUT_RUNTIME_DEFINED% %MainFile% %Classes% %Modules% %Resources% >_out.txt
 
 if %errorlevel% GEQ 1 (
-	goto :endoffile
+	goto :EOF
 )
 
 if not "%2"=="withoutruntime" (
-	goto :endoffile
+	goto :EOF
 )
 
 set AllCompiledFiles=%MainFile% %Classes% %Modules%
@@ -71,6 +71,10 @@ set AllObjectFiles=
 
 for %%I IN (%AllCompiledFiles%) do (
 	call :gcccompile %%I
+)
+
+for %%I IN (%Resources%) do (
+	call :resourcecompile %%I
 )
 
 if "%PROCESSOR_ARCHITECTURE%"=="x86" (
@@ -85,8 +89,7 @@ if "%PROCESSOR_ARCHITECTURE%"=="x86" (
 
 "%CompilerBinDirectory%\dlltool.exe" --def %OutputDefinitionFileName% --dllname %OutputFileName% --output-lib lib%OutputFileName%.a
 
-goto :endoffile
-
+goto :EOF
 
 :gcccompile
 
@@ -110,4 +113,19 @@ set AllObjectFiles=%AllObjectFiles% %FileWithExtensionObj%
 
 exit /b
 
-:endoffile
+
+:resourcecompile
+
+set ResourceFileWithExtension=%1
+set ResourceFileWithoutExtension=%ResourceFileWithExtension:~0,-2%
+set ResourceFileWithExtensionObj=%ResourceFileWithoutExtension%obj
+
+if "%PROCESSOR_ARCHITECTURE%"=="x86" (
+	"%CompilerBinDirectory%\gorc" /ni /nw /o /fo %ResourceFileWithExtensionObj% %ResourceFileWithExtension%
+) else (
+	"%CompilerBinDirectory%\gorc" /ni /machine X64 /o /fo %ResourceFileWithExtensionObj% %ResourceFileWithExtension%
+)
+
+set AllObjectFiles=%AllObjectFiles% %ResourceFileWithExtensionObj%
+
+exit /b
