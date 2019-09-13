@@ -1,0 +1,32 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\BatchedFiles.TestCOMServer.1.0]
+@="Testing COM Class written in FreeBASIC"
+
+[HKEY_CLASSES_ROOT\BatchedFiles.TestCOMServer.1.0\CLSID]
+@="{8093BC4B-F7BD-4D4A-AF46-F0D094DF9AF8}"
+
+[HKEY_CLASSES_ROOT\BatchedFiles.TestCOMServer]
+@="Testing COM Class written in FreeBASIC"
+
+[HKEY_CLASSES_ROOT\BatchedFiles.TestCOMServer\CLSID]
+@="{8093BC4B-F7BD-4D4A-AF46-F0D094DF9AF8}"
+
+[HKEY_CLASSES_ROOT\BatchedFiles.TestCOMServer\CurVer]
+@="BatchedFiles.TestCOMServer.1.0"
+
+[HKEY_CLASSES_ROOT\CLSID\{8093BC4B-F7BD-4D4A-AF46-F0D094DF9AF8}]
+@="Testing COM Class written in FreeBASIC"
+
+[HKEY_CLASSES_ROOT\CLSID\{8093BC4B-F7BD-4D4A-AF46-F0D094DF9AF8}\InprocServer32]
+@="C:\\Programming\\FreeBASIC Projects\\TestCOMServer\\trunk\\bin\\x64\\BatchedFilesTestCOMServer.dll"
+"ThreadingModel"="Apartment"
+
+[HKEY_CLASSES_ROOT\CLSID\{8093BC4B-F7BD-4D4A-AF46-F0D094DF9AF8}\ProgID]
+@="BatchedFiles.TestCOMServer.1.0"
+
+[HKEY_CLASSES_ROOT\CLSID\{8093BC4B-F7BD-4D4A-AF46-F0D094DF9AF8}\Version]
+@="1.0"
+
+[HKEY_CLASSES_ROOT\CLSID\{8093BC4B-F7BD-4D4A-AF46-F0D094DF9AF8}\VersionIndependentProgID]
+@="BatchedFiles.TestCOMServer"
