@@ -19,11 +19,14 @@ Windows Registry Editor Version 5.00
 @="Testing COM Class written in FreeBASIC"
 
 [HKEY_CLASSES_ROOT\CLSID\{8093BC4B-F7BD-4D4A-AF46-F0D094DF9AF8}\InprocServer32]
-@="C:\\Programming\\FreeBASIC Projects\\TestCOMServer\\trunk\\bin\\x64\\BatchedFilesTestCOMServer.dll"
+@="C:\\windows\\system32\\BatchedFilesTestCOMServer.dll"
 "ThreadingModel"="Apartment"
 
 [HKEY_CLASSES_ROOT\CLSID\{8093BC4B-F7BD-4D4A-AF46-F0D094DF9AF8}\ProgID]
 @="BatchedFiles.TestCOMServer.1.0"
+
+[HKEY_CLASSES_ROOT\CLSID\{8093BC4B-F7BD-4D4A-AF46-F0D094DF9AF8}\TypeLib]
+@="{F727B565-4533-4705-BD7B-083B3DBB6D00}"
 
 [HKEY_CLASSES_ROOT\CLSID\{8093BC4B-F7BD-4D4A-AF46-F0D094DF9AF8}\Version]
 @="1.0"
