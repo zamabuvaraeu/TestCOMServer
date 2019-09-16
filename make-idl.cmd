@@ -1,0 +1,1 @@
+midl idl\BatchedFilesTestCOMServer.idl
