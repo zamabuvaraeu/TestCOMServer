@@ -22,22 +22,15 @@ REM set EnableDebug=-g
 REM set EnableFunctionProfiling=-profile
 
 set MainFile=Modules\DLLMain.bas
-set Classes=Classes\TestCOMServer.bas Classes\TestCOMServerClassFactory.bas
+set Classes=Classes\TestCOMServer.bas Classes\ClassFactory.bas
 set Modules=Modules\InitializeVirtualTables.bas Modules\Registry.bas
 set Resources=Resources.rc
 
-if "%1"=="lib" (
-	set DYNAMICLIBRARY_DEFINED=
-	set Win32Subsystem=console
-	set OutputFileName=libBatchedFilesTestCOMServer.a
-	set TypeKindLibrary=-lib
-) else (
-	set DYNAMICLIBRARY_DEFINED=
-	set Win32Subsystem=console
-	set OutputFileName=BatchedFilesTestCOMServer.dll
-	set OutputDefinitionFileName=BatchedFilesTestCOMServer.def
-	set TypeKindLibrary=-dll
-)
+set DYNAMICLIBRARY_DEFINED=
+set Win32Subsystem=console
+set OutputFileName=BatchedFilesTestCOMServer.dll
+set OutputDefinitionFileName=BatchedFilesTestCOMServer.def
+set TypeKindLibrary=-dll
 
 if "%2"=="withoutruntime" (
 	set WITHOUT_RUNTIME_DEFINED=-d WITHOUT_RUNTIME_DEFINED

@@ -1,0 +1,24 @@
+﻿<html>  
+<head>
+<script type="text/vbscript">
+Option Explicit
+
+Dim oTestClass
+Set oTestClass = CreateObject("BatchedFiles.TestCOMServer")
+REM Set oTestClass = CreateObject("Scripting.FileSystemObject")
+
+Dim result
+result = oTestClass.ShowMessageBox(5)
+
+REM WScript.Echo result
+
+Set oTestClass = Nothing
+
+</script>  
+</head>
+<body>
+	<h1>Всем привет!</h1>
+	
+	<p>Это страница</p>
+</body>
+</html>  
