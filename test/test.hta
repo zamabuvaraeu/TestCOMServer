@@ -1,24 +1,36 @@
-﻿<html>  
+﻿<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<script type="text/vbscript">
-Option Explicit
-
-Dim oTestClass
-Set oTestClass = CreateObject("BatchedFiles.TestCOMServer")
-REM Set oTestClass = CreateObject("Scripting.FileSystemObject")
-
-Dim result
-result = oTestClass.ShowMessageBox(5)
-
-REM WScript.Echo result
-
-Set oTestClass = Nothing
-
-</script>  
+	<title>Тестирование класса BatchedFiles.TestCOMServer</title>
+	
+	<script type="text/vbscript">
+	Option Explicit
+	
+	Sub cmdGetResult_onClick()
+		Dim oTestClass
+		Set oTestClass = CreateObject("BatchedFiles.TestCOMServer")
+		REM Set oTestClass = CreateObject("Scripting.FileSystemObject")
+		
+		Dim result
+		result = oTestClass.ShowMessageBox(5)
+		
+		Dim para
+		Set para = document.getElementById("pResult")
+		
+		para.innerHtml = CStr(result)
+		
+		Set oTestClass = Nothing
+		
+	End Sub
+	
+	</script>  
 </head>
 <body>
-	<h1>Всем привет!</h1>
+	<h1>Тестирование класса BatchedFiles.TestCOMServer</h1>
 	
-	<p>Это страница</p>
+	<p>После нажатия кнопки появится результат:</p>
+	
+	<p id="pResult"></p>
+	
+	<p><input type="button" id="cmdGetResult" value="Получить результат" /></p>
 </body>
 </html>  
