@@ -33,6 +33,3 @@ if "%2"=="withoutruntime" (
 set CompilerParameters=%MaxErrorsCount% %UseThreadSafeRuntime% %IncludeLibraries% %IncludeFilesPath% %OptimizationLevel% %VectorizationLevel% %MinWarningLevel% %EnableDebug% %EnableFunctionProfiling% %EnableShowIncludes% %EnableVerbose% %EnableRuntimeErrorChecking%
 
 call translator.cmd "%CompilerDirectory%" "%MainFile% %Classes% %Modules%" "%Resources%" "%CompilerParameters%" "%OutputFile%" %Subsystem% %ExeTypeKind% %WithoutRuntime%
-
-
-
