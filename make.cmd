@@ -23,6 +23,10 @@ REM set EnableRuntimeErrorChecking=-e
 REM set EnableDebug=-g
 REM set EnableFunctionProfiling=-profile
 
+set PROGRAM_VERSION_MAJOR=1
+set PROGRAM_VERSION_MINOR=0
+set PROGRAM_VERSION_BUILD=0
+set PROGRAM_VERSION_REVISION=%RANDOM%
 
 if "%2"=="withoutruntime" (
 	set WithoutRuntime=withoutruntime
@@ -30,6 +34,6 @@ if "%2"=="withoutruntime" (
 	set WithoutRuntime=runtime
 )
 
-set CompilerParameters=%MaxErrorsCount% %UseThreadSafeRuntime% %IncludeLibraries% %IncludeFilesPath% %OptimizationLevel% %VectorizationLevel% %MinWarningLevel% %EnableDebug% %EnableFunctionProfiling% %EnableShowIncludes% %EnableVerbose% %EnableRuntimeErrorChecking%
+set CompilerParameters=-d PROGRAM_VERSION_MAJOR=%PROGRAM_VERSION_MAJOR% -d PROGRAM_VERSION_MINOR=%PROGRAM_VERSION_MINOR% -d PROGRAM_VERSION_BUILD=%PROGRAM_VERSION_BUILD% -d PROGRAM_VERSION_REVISION=%PROGRAM_VERSION_REVISION% %MaxErrorsCount% %UseThreadSafeRuntime% %IncludeLibraries% %IncludeFilesPath% %OptimizationLevel% %VectorizationLevel% %MinWarningLevel% %EnableDebug% %EnableFunctionProfiling% %EnableShowIncludes% %EnableVerbose% %EnableRuntimeErrorChecking%
 
 call translator.cmd "%CompilerDirectory%" "%MainFile% %Classes% %Modules%" "%Resources%" "%CompilerParameters%" "%OutputFile%" %Subsystem% %ExeTypeKind% %WithoutRuntime%
