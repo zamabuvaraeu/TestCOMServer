@@ -20,7 +20,7 @@ midl idl\BatchedFilesTestCOMServer.idl
 Для компиляции компонента выполнить:
 
 ```BatchFile
-make.cmd dll withoutruntime
+call make.cmd dll release withoutruntime
 ```
 
 Считается, что компилятор FreeBASIC установлен в папку `%ProgramFies%`. Если это не так, необходимо поправить путь в файле `make.cmd`.
