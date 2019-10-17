@@ -1,14 +1,14 @@
 set CompilerDirectory=%ProgramFiles%\FreeBASIC
 
-set MainFile=Modules\DLLMain.bas
-set Classes=Classes\ClassFactory.bas Classes\ObjectsCounter.bas Classes\TestCOMServer.bas
-set Modules=Modules\Guids.bas Modules\InitializeVirtualTables.bas Modules\Registry.bas
-set Resources=Resources.rc
-set OutputFile=BatchedFilesTestCOMServer.dll
+set MainFile=test\EntryPoint.bas
+set Classes=
+set Modules=test\ConsoleMain.bas
+set Resources=
+set OutputFile=test.exe
 
 set IncludeFilesPath=-i Classes -i Interfaces -i Modules
 set IncludeLibraries=-l kernel32
-set ExeTypeKind=dll
+set ExeTypeKind=console
 
 set MaxErrorsCount=-maxerr 1
 set MinWarningLevel=-w all
