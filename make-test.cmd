@@ -2,7 +2,7 @@ set CompilerDirectory=%ProgramFiles%\FreeBASIC
 
 set MainFile=test\EntryPoint.bas
 set Classes=
-set Modules=test\ConsoleMain.bas
+set Modules=test\ConsoleMain.bas Modules\Guids.bas
 set Resources=
 set OutputFile=test.exe
 
