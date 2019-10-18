@@ -2,7 +2,7 @@ set CompilerDirectory=%ProgramFiles%\FreeBASIC
 
 set MainFile=Modules\DLLMain.bas
 set Classes=Classes\ClassFactory.bas Classes\ObjectsCounter.bas Classes\TestCOMServer.bas
-set Modules=Modules\Guids.bas Modules\GuidsWithoutMinGW.bas Modules\InitializeVirtualTables.bas Modules\Registry.bas
+set Modules=Modules\Guids.bas Modules\GuidsWithoutMinGW.bas Modules\Registry.bas
 set Resources=Resources.rc
 set OutputFile=BatchedFilesTestCOMServer.dll
 
