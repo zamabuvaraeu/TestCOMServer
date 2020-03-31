@@ -11,7 +11,7 @@
 Для начала необходимо скомпилировать библиотеку типов. Неободимо запустить среду Visual Studio и оттуда выполнить:
 
 ```BatchFile
-midl idl\BatchedFilesTestCOMServer.idl
+midl BatchedFilesTestCOMServer.idl
 ```
 
 
