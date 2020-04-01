@@ -6,7 +6,7 @@ set Modules=Modules\Guids.bas Modules\Registry.bas
 set Resources=Resources.RC
 set OutputFile=BatchedFilesTestCOMServer.dll
 
-set IncludeFilesPath=-i Classes -i Interfaces -i Modules
+set IncludeFilesPath=-i Classes -i Headers -i Interfaces -i Modules
 set IncludeLibraries=-l kernel32
 set ExeTypeKind=dll
 
