@@ -3,7 +3,7 @@ set CompilerDirectory=%ProgramFiles%\FreeBASIC
 set MainFile=Modules\DLLMain.bas
 set Classes=Classes\ClassFactory.bas Classes\ObjectsCounter.bas Classes\TestCOMServer.bas
 set Modules=Modules\Guids.bas Modules\Registry.bas
-set Resources=Resources.rc
+set Resources=Resources.RC
 set OutputFile=BatchedFilesTestCOMServer.dll
 
 set IncludeFilesPath=-i Classes -i Interfaces -i Modules
