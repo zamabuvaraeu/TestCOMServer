@@ -3,19 +3,31 @@
 <head>
 	<title>Тестирование класса BatchedFiles.TestCOMServer</title>
 	
-	<script type="text/vbscript" src="test.vbs">
-	</script>  
-</head>
+	<script type="text/vbscript" src="test.vbs"></script>
+	</head>
 <body>
+	<object id="MyControl" name="MyControl" classid="CLSID:8093BC4B-F7BD-4D4A-AF46-F0D094DF9AF8">
+	</object>
+	
 	<h1>Тестирование класса BatchedFiles.TestCOMServer</h1>
 	
 	<p>После нажатия кнопки появится результат:</p>
-	
-	<p id="pResult"></p>
-	
 	<p>
 		<input type="button" id="cmdGetResult" value="Получить результат" />
 	</p>
 	
+	<h2>Количество объектов</h2>
+	<p>GetObjectsCount</p>
+	<p id="pObjectsCount"></p>
+	
+	<h2>Количество ссылок на объект</h2>
+	<p>GetReferencesCount</p>
+	<p id="pReferencesCount"></p>
+	<p id="pEventText"></p>
+	
+	<!-- <script for="MyControl" event="OnStart" language="VBScript">  -->
+		<!-- MsgBox "123" -->
+	<!-- </script> -->
+	
 </body>
-</html>  
+</html>
