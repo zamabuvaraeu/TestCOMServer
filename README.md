@@ -1,12 +1,16 @@
 ﻿# TestCOMServer
 
-Тестовый COM сервер. Исхдный код используется для демонстрации создания COM‐сервера и тестирования.
+The source code is used to demonstrate the creation of a CoClass in COM inproc-server.
 
 
-## Компиляция
+## How to compile
 
+For the COM class to work, you must have:
 
-### Библиотека типов
+1. Type Library.
+2. DLL containing CoClass.
+
+### Compile Type Library
 
 Для начала необходимо скомпилировать библиотеку типов. Неободимо запустить среду Visual Studio и оттуда выполнить:
 

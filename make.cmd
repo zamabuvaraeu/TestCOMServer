@@ -1,4 +1,4 @@
-set CompilerDirectory=%ProgramFiles%\FreeBASIC
+set CompilerDirectory=%ProgramFiles%\FreeBASIC-1.07.3-win64-gcc-8.1.0
 
 set MainFile=Modules\DLLMain.bas
 set Classes=Classes\ClassFactory.bas Classes\ObjectsCounter.bas Classes\TestCOMServer.bas Classes\TestCOMServerEventsConnectionPoint.bas
