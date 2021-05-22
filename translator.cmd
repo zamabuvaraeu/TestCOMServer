@@ -270,9 +270,9 @@ set WithoutRuntimeLibraryesFlag=%~8
 	if "%DebugFlag%"=="debug" (
 		set LinkerStripFlag=
 	) else (
-		set LinkerStripFlag=-s
+		set LinkerStripFlag=-s --gc-sections
 	)
-	%GCC_LINKER% -m %PEFileFormat% -o %CompilerOutputFileName% -subsystem %Win32Subsystem% -e %EntryPoint% --stack 1048576,1048576 %LinkerStripFlag% -L %COMPILER_LIB_PATH% -L "." "%COMPILER_LIB_PATH:~1,-1%\fbextra.x" %AllObjectFiles% -( %IncludeAllObjectLibraries% -)
+	%GCC_LINKER% -m %PEFileFormat% -o %CompilerOutputFileName% -subsystem %Win32Subsystem% -e %EntryPoint% --stack 1048576,1048576 %LinkerStripFlag% -L %COMPILER_LIB_PATH% -L "." "%COMPILER_LIB_PATH:~1,-1%\fbextra.x" %AllObjectFiles% %IncludeAllObjectLibraries%
 	
 	if "%ExeTypeKind%"=="dll" (
 		%DLL_TOOL% --def %OutputDefinitionFileName% --dllname %CompilerOutputFileName% --output-lib lib%CompilerOutputFileName%.a
@@ -290,7 +290,7 @@ set WithoutRuntimeLibraryesFlag=%~8
 	) else (
 		set OptimizationLevel=-O3
 	)
-	set GCCOptimizations=%OptimizationLevel% -mno-stack-arg-probe -fno-stack-check -fno-stack-protector -fno-strict-aliasing -frounding-math -fno-math-errno -fno-exceptions -fno-unwind-tables -fno-asynchronous-unwind-tables -fno-ident
+	set GCCOptimizations=%OptimizationLevel% -fdata-sections -ffunction-sections -mno-stack-arg-probe -fno-stack-check -fno-stack-protector -fno-strict-aliasing -frounding-math -fno-math-errno -fno-exceptions -fno-unwind-tables -fno-asynchronous-unwind-tables -fno-ident
 	
 	set FileWithExtensionBas=%1
 	set FileWithoutExtension=%FileWithExtensionBas:~0,-3%
