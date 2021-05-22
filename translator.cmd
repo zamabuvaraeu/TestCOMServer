@@ -37,48 +37,48 @@ set WithoutRuntimeLibraryesFlag=%~8
 :CreateCompilerPath
 	
 	if "%Directory%"=="" (
-		set FreeBasicCompilerFilePath="%ProgramFiles%\FreeBASIC\fbc.exe"
+		set FREEBASIC_COMPILER="%ProgramFiles%\FreeBASIC\fbc.exe"
 		
 		if "%PROCESSOR_ARCHITECTURE%"=="x86" (
-			set GccFilePath="%ProgramFiles%\FreeBASIC\bin\win32\gcc.exe"
-			set AssemblerFilePath="%ProgramFiles%\FreeBASIC\bin\win32\as.exe"
-			set LinkerFilePath="%ProgramFiles%\FreeBASIC\bin\win32\ld.exe"
-			set DllToolFilePath="%ProgramFiles%\FreeBASIC\bin\win32\dlltool.exe"
-			set ResourceCompilerFilePath="%ProgramFiles%\FreeBASIC\bin\win32\GoRC.exe"
-			set ArchiveCompilerFilePath="%ProgramFiles%\FreeBASIC\bin\win32\ar.exe"
-			set CompilerLibDirectoryPath="%ProgramFiles%\FreeBASIC\lib\win32"
+			set GCC_COMPILER="%ProgramFiles%\FreeBASIC\bin\win32\gcc.exe"
+			set GCC_ASSEMBLER="%ProgramFiles%\FreeBASIC\bin\win32\as.exe"
+			set GCC_LINKER="%ProgramFiles%\FreeBASIC\bin\win32\ld.exe"
+			set DLL_TOOL="%ProgramFiles%\FreeBASIC\bin\win32\dlltool.exe"
+			set RESOURCE_COMPILER="%ProgramFiles%\FreeBASIC\bin\win32\GoRC.exe"
+			set ARCHIVE_COMPILER="%ProgramFiles%\FreeBASIC\bin\win32\ar.exe"
+			set COMPILER_LIB_PATH="%ProgramFiles%\FreeBASIC\lib\win32"
 			set CodeGenerationBackend=gas
 		) else (
-			set GccFilePath="%ProgramFiles%\FreeBASIC\bin\win64\gcc.exe"
-			set AssemblerFilePath="%ProgramFiles%\FreeBASIC\bin\win64\as.exe"
-			set LinkerFilePath="%ProgramFiles%\FreeBASIC\bin\win64\ld.exe"
-			set DllToolFilePath="%ProgramFiles%\FreeBASIC\bin\win64\dlltool.exe"
-			set ResourceCompilerFilePath="%ProgramFiles%\FreeBASIC\bin\win64\GoRC.exe"
-			set ArchiveCompilerFilePath="%ProgramFiles%\FreeBASIC\bin\win64\ar.exe"
-			set CompilerLibDirectoryPath="%ProgramFiles%\FreeBASIC\lib\win64"
+			set GCC_COMPILER="%ProgramFiles%\FreeBASIC\bin\win64\gcc.exe"
+			set GCC_ASSEMBLER="%ProgramFiles%\FreeBASIC\bin\win64\as.exe"
+			set GCC_LINKER="%ProgramFiles%\FreeBASIC\bin\win64\ld.exe"
+			set DLL_TOOL="%ProgramFiles%\FreeBASIC\bin\win64\dlltool.exe"
+			set RESOURCE_COMPILER="%ProgramFiles%\FreeBASIC\bin\win64\GoRC.exe"
+			set ARCHIVE_COMPILER="%ProgramFiles%\FreeBASIC\bin\win64\ar.exe"
+			set COMPILER_LIB_PATH="%ProgramFiles%\FreeBASIC\lib\win64"
 			set CodeGenerationBackend=gcc
 		)
 		
 	) else (
-		set FreeBasicCompilerFilePath="%Directory%\fbc.exe"
+		set FREEBASIC_COMPILER="%Directory%\fbc.exe"
 		
 		if "%PROCESSOR_ARCHITECTURE%"=="x86" (
-			set GccFilePath="%Directory%\bin\win32\gcc.exe"
-			set AssemblerFilePath="%Directory%\bin\win32\as.exe"
-			set LinkerFilePath="%Directory%\bin\win32\ld.exe"
-			set DllToolFilePath="%Directory%\bin\win32\dlltool.exe"
-			set ResourceCompilerFilePath="%Directory%\bin\win32\GoRC.exe"
-			set ArchiveCompilerFilePath="%Directory%\bin\win32\ar.exe"
-			set CompilerLibDirectoryPath="%Directory%\lib\win32"
+			set GCC_COMPILER="%Directory%\bin\win32\gcc.exe"
+			set GCC_ASSEMBLER="%Directory%\bin\win32\as.exe"
+			set GCC_LINKER="%Directory%\bin\win32\ld.exe"
+			set DLL_TOOL="%Directory%\bin\win32\dlltool.exe"
+			set RESOURCE_COMPILER="%Directory%\bin\win32\GoRC.exe"
+			set ARCHIVE_COMPILER="%Directory%\bin\win32\ar.exe"
+			set COMPILER_LIB_PATH="%Directory%\lib\win32"
 			set CodeGenerationBackend=gas
 		) else (
-			set GccFilePath="%Directory%\bin\win64\gcc.exe"
-			set AssemblerFilePath="%Directory%\bin\win64\as.exe"
-			set LinkerFilePath="%Directory%\bin\win64\ld.exe"
-			set DllToolFilePath="%Directory%\bin\win64\dlltool.exe"
-			set ResourceCompilerFilePath="%Directory%\bin\win64\GoRC.exe"
-			set ArchiveCompilerFilePath="%Directory%\bin\win64\ar.exe"
-			set CompilerLibDirectoryPath="%Directory%\lib\win64"
+			set GCC_COMPILER="%Directory%\bin\win64\gcc.exe"
+			set GCC_ASSEMBLER="%Directory%\bin\win64\as.exe"
+			set GCC_LINKER="%Directory%\bin\win64\ld.exe"
+			set DLL_TOOL="%Directory%\bin\win64\dlltool.exe"
+			set RESOURCE_COMPILER="%Directory%\bin\win64\GoRC.exe"
+			set ARCHIVE_COMPILER="%Directory%\bin\win64\ar.exe"
+			set COMPILER_LIB_PATH="%Directory%\lib\win64"
 			set CodeGenerationBackend=gcc
 		)
 	)
@@ -168,7 +168,7 @@ set WithoutRuntimeLibraryesFlag=%~8
 	
 :RuntimeCompilation
 	
-	%FreeBasicCompilerFilePath% %WITHOUT_RUNTIME_DEFINED% -x %CompilerOutputFileName% %WriteOutOnlyAsmFlag% -s %Win32Subsystem% %CompilerExeTypeKind% -gen %CodeGenerationBackend% %CompilerDebugFlag% %CompilerProfileFlag% %CompilerParameters% %AllCompiledFiles% >%CompilerLogErrorFileName%
+	%FREEBASIC_COMPILER% %WITHOUT_RUNTIME_DEFINED% -x %CompilerOutputFileName% %WriteOutOnlyAsmFlag% -s %Win32Subsystem% %CompilerExeTypeKind% -gen %CodeGenerationBackend% %CompilerDebugFlag% %CompilerProfileFlag% %CompilerParameters% %AllCompiledFiles% >%CompilerLogErrorFileName%
 	
 	if %errorlevel% GEQ 1 (
 		exit /b %errorlevel%
@@ -272,10 +272,10 @@ set WithoutRuntimeLibraryesFlag=%~8
 	) else (
 		set LinkerStripFlag=-s
 	)
-	%LinkerFilePath% -m %PEFileFormat% -o %CompilerOutputFileName% -subsystem %Win32Subsystem% -e %EntryPoint% --stack 1048576,1048576 %LinkerStripFlag% -L %CompilerLibDirectoryPath% -L "." "%CompilerLibDirectoryPath:~1,-1%\fbextra.x" %AllObjectFiles% -( %IncludeAllObjectLibraries% -)
+	%GCC_LINKER% -m %PEFileFormat% -o %CompilerOutputFileName% -subsystem %Win32Subsystem% -e %EntryPoint% --stack 1048576,1048576 %LinkerStripFlag% -L %COMPILER_LIB_PATH% -L "." "%COMPILER_LIB_PATH:~1,-1%\fbextra.x" %AllObjectFiles% -( %IncludeAllObjectLibraries% -)
 	
 	if "%ExeTypeKind%"=="dll" (
-		%DllToolFilePath% --def %OutputDefinitionFileName% --dllname %CompilerOutputFileName% --output-lib lib%CompilerOutputFileName%.a
+		%DLL_TOOL% --def %OutputDefinitionFileName% --dllname %CompilerOutputFileName% --output-lib lib%CompilerOutputFileName%.a
 	)
 	
 	exit /b 0
@@ -306,7 +306,7 @@ set WithoutRuntimeLibraryesFlag=%~8
 	)
 	
 	if "%CodeGenerationBackend%"=="gcc" (
-		%GccFilePath% %GCCWarning% %GCCNoInclude% %GCCOptimizations% %GCCArchitecture% %CompilerDebugFlag% -masm=intel -S %FileWithExtensionC% -o %FileWithExtensionAsm%
+		%GCC_COMPILER% %GCCWarning% %GCCNoInclude% %GCCOptimizations% %GCCArchitecture% %CompilerDebugFlag% -masm=intel -S %FileWithExtensionC% -o %FileWithExtensionAsm%
 	)
 	set AllFileWithExtensionC=%AllFileWithExtensionC% %FileWithExtensionC%
 	set AllFileWithExtensionAsm=%AllFileWithExtensionAsm% %FileWithExtensionAsm%
@@ -316,7 +316,7 @@ set WithoutRuntimeLibraryesFlag=%~8
 	) else (
 		set AssemblerStripFlag=--strip-local-absolute
 	)
-	%AssemblerFilePath% %TargetAssemblerArch% %AssemblerStripFlag% %FileWithExtensionAsm% -o %FileWithExtensionObj%
+	%GCC_ASSEMBLER% %TargetAssemblerArch% %AssemblerStripFlag% %FileWithExtensionAsm% -o %FileWithExtensionObj%
 	set AllObjectFiles=%AllObjectFiles% %FileWithExtensionObj%
 	
 	
@@ -335,7 +335,7 @@ set WithoutRuntimeLibraryesFlag=%~8
 		set ResourceCompilerBitFlag=/machine X64
 	)
 	
-	%ResourceCompilerFilePath% /ni %ResourceCompilerBitFlag% /o /fo %ResourceFileWithExtensionObj% %ResourceFileWithExtension%
+	%RESOURCE_COMPILER% /ni %ResourceCompilerBitFlag% /o /fo %ResourceFileWithExtensionObj% %ResourceFileWithExtension%
 	
 	set AllObjectFiles=%AllObjectFiles% %ResourceFileWithExtensionObj%
 	
